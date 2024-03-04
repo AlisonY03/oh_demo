@@ -6,7 +6,6 @@ import http from '@ohos.net.http';
 export class JsonHttpRequest implements IHttpRequest {
   private url: string = '';
   private params: string = '';
-  private iHttpListener: IHttpListener;
 
   constructor() {
 
@@ -21,12 +20,8 @@ export class JsonHttpRequest implements IHttpRequest {
     this.params = JSON.parse(this.params);
   }
 
-  setListener(iHttpListener: IHttpListener) {
-    this.iHttpListener = iHttpListener;
-  }
 
-
-  async execute(): Promise<void> {
+  async execute(iHttpListener: IHttpListener): Promise<void> {
     let httpRequest = http.createHttp();
     console.log('JsonHttpRequest: params:' + this.params);
     httpRequest.request(this.url, {
@@ -42,7 +37,7 @@ export class JsonHttpRequest implements IHttpRequest {
           console.info('cookies:' + JSON.stringify(data.cookies)); // 8+
 
           //执行结果进行回调
-          this.iHttpListener.onSuccess(data.result.toString());
+          iHttpListener.onSuccess(data.result.toString());
 
           // 当该请求使用完毕时，调用destroy方法主动销毁
           httpRequest.destroy();

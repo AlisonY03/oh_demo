@@ -10,7 +10,7 @@ export class HttpTask<T> {
     this.iHttpRequest = iHttpRequest;
     this.iHttpListener = iHttpListener;
     this.iHttpRequest.setUrl(url);
-    this.iHttpRequest.setListener(iHttpListener);
+    // this.iHttpRequest.setListener(iHttpListener);
 
     if (requestData != null) {
       let requestParams:string=JSON.stringify(requestData);
@@ -22,7 +22,7 @@ export class HttpTask<T> {
 
   //真实的网络请求
   async run(): Promise<void> {
-    await this.iHttpRequest.execute();
+    await this.iHttpRequest.execute(this.iHttpListener);
   }
 }
 

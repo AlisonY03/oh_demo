@@ -9,9 +9,7 @@ export interface IHttpRequest {
 
   setParams(params:string):void;
 
-  execute():Promise<void>;
+  execute(iHttpListener:IHttpListener):Promise<void>;
 
-  //两个接口连接在一起用
-  setListener(iHttpListener:IHttpListener):void;
 
 }

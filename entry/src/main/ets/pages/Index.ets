@@ -25,7 +25,6 @@ struct Index {
                   console.log("xxxx")
                 } else if (name == "网络请求"){
                   this.startHttp("xxx")
-
                 }
               }});
             }

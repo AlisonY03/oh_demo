@@ -3,14 +3,8 @@ import { Friend, friendNew } from '../model/FriendModel'
 @Component
 export struct ItemView{
 
-  private test:(name: string) => void = () => {};
-  private item : Friend = friendNew;
-
-  constructor(friend:Friend, event ?: (name: string) => void) {
-    super();
-    this.item = friend;
-    this.test = event;
-  }
+  @State item : Friend = friendNew;
+  test:(name: string) => void = () => {};
 
   build(){
     Row(){
