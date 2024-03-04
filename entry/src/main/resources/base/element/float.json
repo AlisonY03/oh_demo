@@ -1,0 +1,16 @@
+{
+  "float": [
+    {
+      "name": "login_progress_size",
+      "value": "30vp"
+    },
+    {
+      "name": "login_progress_margin_top",
+      "value": "20vp"
+    },
+    {
+      "name": "next_page_font_size",
+      "value": "20vp"
+    }
+  ]
+}
